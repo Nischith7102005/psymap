@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mind Brain Map</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🧠 Mind Brain Map</h1>
+      <p class="subtitle">Transform your content into an interactive visualization of your interests and psychological patterns</p>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <div class="input-group">
+          <label for="url-input">Add Web URL</label>
+          <div class="url-input-container">
+            <input type="url" id="url-input" placeholder="https://example.com/article" />
+            <button id="add-url-btn" class="btn primary">Add URL</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="pdf-input">Upload PDF</label>
+          <div class="file-input-container">
+            <input type="file" id="pdf-input" accept=".pdf" multiple />
+            <span class="file-label">Choose PDF files</span>
+          </div>
+        </div>
+
+        <div class="sources-list">
+          <h3>Sources (<span id="source-count">0</span>)</h3>
+          <ul id="sources-ul"></ul>
+        </div>
+
+        <button id="analyze-btn" class="btn analyze" disabled>Analyze & Generate Brain Map</button>
+      </section>
+
+      <section class="visualization-section" id="viz-section" style="display: none;">
+        <div class="controls">
+          <button id="export-btn" class="btn secondary">Export as PNG</button>
+          <button id="reset-btn" class="btn secondary">Reset View</button>
+          <button id="new-analysis-btn" class="btn secondary">New Analysis</button>
+        </div>
+
+        <div class="viz-container">
+          <div id="brain-map"></div>
+          <div id="tooltip" class="tooltip"></div>
+        </div>
+
+        <div class="insights-panel">
+          <h2>Insights</h2>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="stat-sources">0</div>
+              <div class="stat-label">Sources</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="stat-concepts">0</div>
+              <div class="stat-label">Concepts</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="stat-themes">0</div>
+              <div class="stat-label">Themes</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="stat-dominant">-</div>
+              <div class="stat-label">Dominant Trait</div>
+            </div>
+          </div>
+
+          <div class="insights-content">
+            <div class="insight-block">
+              <h3>🎯 Primary Interests</h3>
+              <ul id="interests-list"></ul>
+            </div>
+
+            <div class="insight-block">
+              <h3>🔗 Connected Themes</h3>
+              <div id="themes-cloud"></div>
+            </div>
+
+            <div class="insight-block">
+              <h3>🧠 Psychological Profile</h3>
+              <div id="psych-profile"></div>
+            </div>
+
+            <div class="insight-block">
+              <h3>📊 Content Patterns</h3>
+              <div id="content-patterns"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="loading-section" id="loading-section" style="display: none;">
+        <div class="loader"></div>
+        <p id="loading-text">Processing...</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Local-first application • All processing happens in your browser • No data leaves your device</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
